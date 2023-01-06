@@ -1,5 +1,6 @@
 ﻿using Services.Account;
 using Services.BackgroundServices;
+using Services.EmailAlert;
 using Services.Mail;
 using Services.Seed;
 using Services.StoredProcedures;
@@ -16,6 +17,7 @@ namespace App.Helper
             appservices.AddTransient<IMailService, MailService>();
             appservices.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
+            appservices.AddScoped<IEmailAlert, EmailAlert>();
             appservices.AddHostedService<AutoExecuteService>();
 
             return appservices;
